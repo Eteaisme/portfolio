@@ -3,7 +3,7 @@ SRC = main.cpp
 INSTALL_PATH = /home/portfolio/bin/portfolio
 
 $(TARGET): $(SRC)
-	g++ $(SRC) -o $(TARGET)
+	g++ $(SRC) -o $(TARGET) -lftxui-component -lftxui-dom -lftxui-screen -pthread
 
 deploy: $(TARGET)
 	sudo cp $(TARGET) $(INSTALL_PATH)
