@@ -7,15 +7,14 @@
 using namespace ftxui;
 
 int main() {
+    //Create a dynamic screen, box, current screen identifier & mouse --- xy varibles. 
     auto screen = ScreenInteractive::Fullscreen();
-
     std::string current_screen = "home";
-
     int local_x = 0;
     int local_y = 0;
-
     Box plot_box;
 
+    //Renders and plots to the boxa  3d gaussian plot taken from ftxui examples
     auto renderer_plot_3 = Renderer([&] {
         auto c = Canvas(100, 100);
         int size = 15;
@@ -47,7 +46,6 @@ int main() {
                 }
             }
         }
-
         return canvas(std::move(c));
     });
 
@@ -56,12 +54,16 @@ int main() {
         return e | reflect(plot_box);
     });
 
+
+
+
+//Changes content displayed based on current screen
     auto content = [&]() -> Element {
         if (current_screen == "home") {
             return vbox({
                 text("hi, i'm elliot, a computing student @ the university of guelph."),
                 text("i enjoy coffee, reading, music, math & computers."),
-                text("looking for S25 work."),
+                text("looking for S26 work."),
             });
         }
         if (current_screen == "projects") {
@@ -81,6 +83,7 @@ int main() {
         return text("");
     };
 
+// Describes entire doccument,nav-bar, footer & innerbox.
     auto document = Renderer([&] {
         Element nav_bar =
             hbox({
@@ -124,6 +127,8 @@ int main() {
         });
     });
 
+
+// Event listener looking for mouse and keys
     auto main_component = CatchEvent(document, [&](Event event) {
         if (event.is_mouse() && event.mouse().motion) {
             int mx = event.mouse().x;
@@ -142,7 +147,6 @@ int main() {
 
         return false;
     });
-
     screen.Loop(main_component);
     return 0;
 }
