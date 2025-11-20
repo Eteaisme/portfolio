@@ -52,7 +52,7 @@ int main() {
                 text("") | bold,
                 text(" in "),
                 text("🇨🇦"),
-                text("    |    q") | bold,
+                text("        q") | bold,
                 text(" quit"),
             }) | center;
 
