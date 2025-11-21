@@ -15,7 +15,11 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(ftxui)
 
 add_executable(portfolio
+    src/app_state.cpp
+    src/content_view.cpp
     src/main.cpp
+    src/portfolio_app.cpp
+    src/projects_menu.cpp
 )
 
 target_link_libraries(portfolio
