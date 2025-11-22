@@ -1,7 +1,7 @@
-#include "portfolio_app.hpp"
+#include "portfolio.hpp"
 
-#include "content_view.hpp"
-#include "projects_menu.hpp"
+#include "content/content.hpp"
+#include "projects/projects.hpp" 
 
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/event.hpp>

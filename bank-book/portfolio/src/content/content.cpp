@@ -1,4 +1,4 @@
-#include "content_view.hpp"
+#include "content.hpp"
 
 #include <ftxui/dom/elements.hpp>
 

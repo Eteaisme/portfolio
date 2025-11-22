@@ -1,4 +1,4 @@
-#include "app_state.hpp"
+#include "app-state.hpp"
 
 namespace {
 const std::string& EmptyString() {
