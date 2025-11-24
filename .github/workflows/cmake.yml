@@ -1,0 +1,30 @@
+name: cmake build
+
+on: 
+  push: 
+    paths:
+      - 'bank-book/portfolio' 
+      - '.github/workflows'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: install dep.
+        run: |
+          sudo apt update
+          sudo apt install -y cmake g++ make
+
+      - name: run cmake
+        run : | 
+          cd bank-book/portfolio/build
+          cmake ..
+      - name: build
+        run: |
+          cd bank-book/portfolio/build
+          make
+
+
