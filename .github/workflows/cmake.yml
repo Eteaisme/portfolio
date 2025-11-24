@@ -1,10 +1,11 @@
 name: cmake build
 
-on: 
-  push: 
+on:
+  push:
     paths:
-      - 'bank-book/portfolio' 
-      - '.github/workflows'
+      - 'bank-book/portfolio/**'
+      - '.github/workflows/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,18 +14,18 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: install dep.
+      - name: install dependencies
         run: |
           sudo apt update
           sudo apt install -y cmake g++ make
 
-      - name: run cmake
-        run : | 
+      - name: configure cmake
+        run: |
+          mkdir -p bank-book/portfolio/build
           cd bank-book/portfolio/build
           cmake ..
+
       - name: build
         run: |
           cd bank-book/portfolio/build
-          make
-
-
+          make -j$(nproc)
