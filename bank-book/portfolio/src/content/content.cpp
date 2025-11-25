@@ -10,18 +10,27 @@ Element BuildProjectDetails(const std::string& project_name) {
         return vbox({
             text("portfolio") | bold,
             separator(),
+            text("a tui portfolio written in C++ using"),
+            text("a react-inspired library called ftxui."),
         });
     }
     if (project_name == "neontra") {
         return vbox({
             text("neontra") | bold,
             separator(),
+            text("frontent swe @ a toronto-based fintech"),
+            text("startup called Neontra. Worked on sales"),
+            text("site, web & mobile application."),
         });
     }
     if (project_name == "frc") {
         return vbox({
             text("frc") | bold,
             separator(),
+            text("captain co-head programmer & head"),
+            text("stratagist. used java and oop "),
+            text("principles to write compitition robot"),
+            text("code. also tought and trained other team members")
         });
     }
     return text("unknown project") | dim;
